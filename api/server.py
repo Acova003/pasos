@@ -5,12 +5,10 @@ from flask import (Flask, session, request)
 app = Flask(__name__)
 
 
-@app.route('/')
-def homepage():
-    """View homepage"""
-    return ""
-
-
+# @app.route('/login')
+# def login():
+#     """View login component"""
+#     return ""
 
 
 if __name__ == '__main__':
