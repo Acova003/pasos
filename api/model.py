@@ -34,7 +34,7 @@ class Trip(db.Model):
         return f'<Trip trip_id={self.trip_id} user_id={self.user_id} title={self.title}>'
 
 
-class location(db.Model):
+class Location(db.Model):
     """A pin location."""
 
     __tablename__ = 'locations'
