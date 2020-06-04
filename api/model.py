@@ -11,9 +11,9 @@ class User(db.Model):
     __tablename__ = 'users'
 
     user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    username = db.Column(db.String, unique=True)
-    display_name = db.Column(db.String)
-    email = db.Column(db.String, unique=True)
+    username = db.Column(db.String, nullable=False, unique=True)
+    display_name = db.Column(db.String, nullable=False)
+    email = db.Column(db.String, nullable=False, unique=True)
     password = db.Column(db.String)
     step_count = db.Column(db.Integer)
 
@@ -28,7 +28,7 @@ class Trip(db.Model):
 
     trip_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-    title = db.Column(db.String)
+    title = db.Column(db.String, nullable=False)
 
     def __repr__(self):
         return f'<Trip trip_id={self.trip_id} user_id={self.user_id} title={self.title}>'
@@ -46,9 +46,11 @@ class Location(db.Model):
     latitude = db.Column(db.Float)
     city_name = db.Column(db.String)
     body = db.Column(db.Text)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+
 
     trip = db.relationship('Trip', backref='locations')
-    user = db.relationship('User', backref='locations')
+    user = db.relationship('User')
 
     def __repr__(self):
         return f'<Location pin_id={self.pin_id} title={self.title}>'
@@ -59,9 +61,11 @@ class Image(db.Model):
     __tablename__ = 'images'
 
     image_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    pin_id = db.Column(db.Integer, db.ForeignKey('trips.trip_id'))
-    name = db.Column(db.String)
-    path = db.Column(db.String)
+    pin_id = db.Column(db.Integer, db.ForeignKey('locations.pin_id'))
+    trip_id = db.Column(db.Integer, db.ForeignKey('trips.trip_id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+    name = db.Column(db.String, nullable=False)
+    path = db.Column(db.String, nullable=False)
 
     location = db.relationship('Location', backref='images')
     trip = db.relationship('Trip', backref='images')
@@ -80,6 +84,7 @@ def connect_to_db(flask_app, db_uri='postgresql:///pasos', echo=True):
     db.init_app(flask_app)
 
     print('Connected to the db!')
+
 
 
 if __name__ == '__main__':
