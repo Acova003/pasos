@@ -7,7 +7,7 @@ render(){
   return (
     <div className="App">
 
-      google-site-verification: google60c2710e2f92c9ae.html
+      <meta name="google-site-verification" content="mq3x3VoYWFhhSLNYBB7qr-9BP6T-XbzRW3NbTo7_2Lk" />
 
     </div>
     );
