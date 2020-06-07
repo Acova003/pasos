@@ -15,7 +15,7 @@ class App extends Component {
           <h1 className="App-title">Pasos</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          A virtual pilgrimmage on the Camino de Santiago
         </p>
         <h2> Login with Google </h2>
         <GoogleLogin
@@ -24,7 +24,7 @@ class App extends Component {
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
-        />,
+        />
       </div>
     );
   }
