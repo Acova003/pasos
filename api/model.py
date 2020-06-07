@@ -50,7 +50,7 @@ class Location(db.Model):
 
 
     trip = db.relationship('Trip', backref='locations')
-    user = db.relationship('User')
+    user = db.relationship('User', backref='locations')
 
     def __repr__(self):
         return f'<Location pin_id={self.pin_id} title={self.title}>'

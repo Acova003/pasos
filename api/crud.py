@@ -1,7 +1,7 @@
 """CRUD operations."""
-from model import db, User, connect_to_db
+# from model import db, User, connect_to_db
 
-# from model import db, User, Trip, Location, Image, connect_to_db
+from model import db, User, Trip, Location, Image, connect_to_db
 
 def create_user(username, password):
     """Create and return a new user."""
