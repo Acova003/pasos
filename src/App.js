@@ -1,15 +1,17 @@
-import React from 'react';
-import './App.css';
-import GoogleLogin from 'react-google-login';
+import React, { Component } from "react";
+import "./App.css";
 
-class App extends React.Component {
-render(){
-  return (
-    <div className="App">
-
-      <meta name="google-site-verification" content="mq3x3VoYWFhhSLNYBB7qr-9BP6T-XbzRW3NbTo7_2Lk" />
-
-    </div>
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+      </div>
     );
   }
 }
