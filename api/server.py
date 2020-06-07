@@ -3,6 +3,7 @@
 import time
 from flask import (Flask, request, flash, session, redirect)
 from model import db, connect_to_db
+from flask_oauth import OAuth
 import crud
 
 app = Flask(__name__)
