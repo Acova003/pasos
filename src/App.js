@@ -7,7 +7,7 @@ render(){
   return (
     <div className="App">
 
-      <h1> Pasos </h1>
+      google-site-verification: google60c2710e2f92c9ae.html
 
     </div>
     );
