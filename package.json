@@ -41,6 +41,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://pasos-app.herokuapp.com",
+  "proxy": "https://pasos-app.herokuapp.com/api/",
   "secure": false
 }
