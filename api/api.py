@@ -1,7 +1,7 @@
 """Backend Flask Server for Pasos app."""
 
 import time
-from flask import (Flask, request, flash, session, redirect)
+from flask import (Flask, request, flash, session, redirect, render_template)
 from model import db, connect_to_db
 # from flask_oauth import OAuth
 import crud
