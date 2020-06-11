@@ -2,7 +2,7 @@
 
 import time
 from flask import (Flask, request, flash, session, redirect, render_template)
-from model import db, connect_to_db
+from model import Trip, db, connect_to_db
 # from flask_oauth import OAuth
 import crud
 
@@ -15,8 +15,16 @@ def get_current_time():
 
 @app.route("/")
 def hello():
+    trips = [Trip(title='123')]
     message = "Hello, World"
-    return render_template('index.html', message=message)
+    return render_template('index.html', trips=trips)
+
+@app.route('/trips')
+def all_trips():
+    # trips = crud.get_trips()
+    trips = [Trip(title='123')]
+
+    return render_template('index.html', trips=trips)
 
 # @app.route('/index.html')
 # def index():
